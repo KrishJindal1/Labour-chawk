@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      
+      <title>{{project.seoTitle}}</title>
+      <!-- SEO Description -->
+      <meta name="description" content="{{project.seoDescription}}">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+       
+      
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  DEFAULT: '{{settings.colors.primary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8', 
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '{{settings.colors.secondary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3', 
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '{{settings.colors.accent}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3', 
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['{{settings.fonts.primary}}', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+                body: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      });
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="keywords" content="{{project.meta.keywords}}">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+      <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+      <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+      <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+      <meta property="og:title" content="{{project.meta.ogTitle}}">
+      <meta property="og:description" content="{{project.meta.ogDescription}}">
+      <meta property="og:image" content="{{project.meta.ogImage}}">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{project.name}}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+      <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+      <meta name="twitter:image" content="{{project.meta.ogImage}}">
+    
+      
+      <link rel="icon" type="image/x-icon" href="{{settings.favicon}}">
+      
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: {{settings.fonts.primary}}, Inter, system-ui, sans-serif;
+        }
+        body {
+          font-family: {{settings.fonts.secondary}}, Inter, system-ui, sans-serif;
+        }
+      </style>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative h-full">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+      
+   </body>
+</html><script>window.projectId = "82188ab6-1c09-4234-b98f-6586295db910";</script><div id='RolloutPageContent'><element id="967c97a9-f85f-4258-a619-8fd309f57b61" data-section-id="967c97a9-f85f-4258-a619-8fd309f57b61">
+
+
+<div id="root">
+  <nav class="bg-[#003366] fixed w-full z-50 top-0" id="header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex-shrink-0">
+          <span class="text-white text-xl font-bold font-['Poppins']">Beloyee</span>
+        </div>
+        <div class="hidden md:block">
+          <ul class="ml-10 flex items-center space-x-4">
+            <li>
+              <a href="#hero" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium font-['Inter']">Home</a>
+            </li>
+            <li>
+              <a href="#how-it-works" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium font-['Inter']">How It Works</a>
+            </li>
+            <li>
+              <a href="#features" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium font-['Inter']">Features</a>
+            </li>
+            <li>
+              <a href="#worker-categories" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium font-['Inter']">Categories</a>
+            </li>
+            <li>
+              <a href="#testimonials" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium font-['Inter']">Testimonials</a>
+            </li>
+            <li>
+              <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium font-['Inter']">Contact</a>
+            </li>
+            <li>
+              <button class="bg-[#28A745] text-white px-4 py-2 rounded-md text-sm font-medium ml-4 hover:bg-[#218838] transition duration-300">Hire Now</button>
+            </li>
+          </ul>
+        </div>
+        <div class="md:hidden">
+          <button type="button" class="hamburger-menu inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="md:hidden hidden" id="mobile-menu">
+      <ul class="px-2 pt-2 pb-3 space-y-1">
+        <li>
+          <a href="#hero" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium font-['Inter']">Home</a>
+        </li>
+        <li>
+          <a href="#how-it-works" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium font-['Inter']">How It Works</a>
+        </li>
+        <li>
+          <a href="#features" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium font-['Inter']">Features</a>
+        </li>
+        <li>
+          <a href="#worker-categories" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium font-['Inter']">Categories</a>
+        </li>
+        <li>
+          <a href="#testimonials" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium font-['Inter']">Testimonials</a>
+        </li>
+        <li>
+          <a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium font-['Inter']">Contact</a>
+        </li>
+        <li>
+          <button class="bg-[#28A745] text-white px-4 py-2 rounded-md text-sm font-medium mt-4 hover:bg-[#218838] transition duration-300 w-full">Hire Now</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <script>
+    document.querySelector('.hamburger-menu').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+    });
+  </script>
+</div>
+</element><element id="6c498aff-cb22-4993-b5dd-7fb666b7313b" data-section-id="6c498aff-cb22-4993-b5dd-7fb666b7313b">
+
+
+<div id="root">
+  <section id="hero" class="bg-[#003366] min-h-[70vh] pt-20 pb-16 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="grid-pattern absolute inset-0"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="flex-1 text-center md:text-left animate__animated animate__fadeInLeft">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-['Poppins']">
+            Hire Skilled Workers Instantly – Affordable, Fast, and Reliable!
+          </h1>
+          <p class="text-xl text-gray-300 mb-8 font-['Inter']">
+            Find daily wage workers for construction, plumbing, painting, and more. AI-powered job matching, secure payments, and verified workers.
+          </p>
+          
+          <div class="space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row justify-center md:justify-start">
+            <button class="bg-[#28A745] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#218838] transition duration-300 transform hover:scale-105">
+              Hire a Worker Now
+            </button>
+            <button class="bg-white text-[#003366] px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+              Register as a Worker
+            </button>
+          </div>
+
+          <div class="mt-12 bg-white p-4 rounded-lg shadow-lg max-w-2xl">
+            <div class="flex flex-col sm:flex-row gap-4">
+              <div class="flex-1 relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <input type="text" placeholder="Enter your location" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#28A745] focus:border-transparent">
+              </div>
+              <div class="flex-1">
+                <select class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#28A745] focus:border-transparent">
+                  <option value="">Select Skill Category</option>
+                  <option value="construction">Construction</option>
+                  <option value="plumber">Plumber</option>
+                  <option value="electrician">Electrician</option>
+                  <option value="painter">Painter</option>
+                </select>
+              </div>
+              <button class="bg-[#FF9800] text-white px-6 py-3 rounded-md hover:bg-[#F57C00] transition duration-300">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-1 hidden md:block animate__animated animate__fadeInRight">
+          <div class="relative">
+            <div class="floating-element absolute -top-20 -right-20 w-40 h-40 bg-[#28A745] rounded-full opacity-10"></div>
+            <div class="floating-element absolute -bottom-10 -left-10 w-28 h-28 bg-[#FF9800] rounded-full opacity-10"></div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+              <div class="aspect-square rounded-xl bg-gradient-to-br from-[#004080] to-[#002347] flex items-center justify-center">
+                <svg class="w-3/4 h-3/4 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .grid-pattern {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+  </style>
+</div>
+</element><element id="8fc4ee51-64e8-42a5-994d-8d3c462707bf" data-section-id="8fc4ee51-64e8-42a5-994d-8d3c462707bf">
+
+<div id="root">
+  <section id="how-it-works" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-[#003366] mb-4 font-['Poppins'] animate__animated animate__fadeIn">How It Works</h2>
+        <p class="text-xl text-gray-600 font-['Inter']">Simple steps to connect workers and employers</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-16">
+        <div class="bg-gray-50 rounded-2xl p-8 animate__animated animate__fadeInLeft">
+          <h3 class="text-2xl font-bold text-[#003366] mb-8 font-['Poppins']">For Employers</h3>
+          <div class="space-y-8">
+            <div class="flex items-start space-x-4 group">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#28A745] rounded-full flex items-center justify-center text-white font-bold transform group-hover:scale-110 transition-transform duration-300">1</div>
+              <div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-2 font-['Poppins']">Post a Job</h4>
+                <p class="text-gray-600 font-['Inter']">Describe the work needed and set your requirements</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 group">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#28A745] rounded-full flex items-center justify-center text-white font-bold transform group-hover:scale-110 transition-transform duration-300">2</div>
+              <div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-2 font-['Poppins']">Get Matched</h4>
+                <p class="text-gray-600 font-['Inter']">AI suggests the best workers for your job</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 group">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#28A745] rounded-full flex items-center justify-center text-white font-bold transform group-hover:scale-110 transition-transform duration-300">3</div>
+              <div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-2 font-['Poppins']">Hire & Pay Securely</h4>
+                <p class="text-gray-600 font-['Inter']">Pay via UPI, Razorpay with secure transactions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-8 animate__animated animate__fadeInRight">
+          <h3 class="text-2xl font-bold text-[#003366] mb-8 font-['Poppins']">For Workers</h3>
+          <div class="space-y-8">
+            <div class="flex items-start space-x-4 group">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#FF9800] rounded-full flex items-center justify-center text-white font-bold transform group-hover:scale-110 transition-transform duration-300">1</div>
+              <div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-2 font-['Poppins']">Sign Up & Verify</h4>
+                <p class="text-gray-600 font-['Inter']">Quick registration via phone/Aadhaar</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 group">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#FF9800] rounded-full flex items-center justify-center text-white font-bold transform group-hover:scale-110 transition-transform duration-300">2</div>
+              <div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-2 font-['Poppins']">Receive Job Offers</h4>
+                <p class="text-gray-600 font-['Inter']">Accept tasks based on your skills</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 group">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#FF9800] rounded-full flex items-center justify-center text-white font-bold transform group-hover:scale-110 transition-transform duration-300">3</div>
+              <div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-2 font-['Poppins']">Get Paid Instantly</h4>
+                <p class="text-gray-600 font-['Inter']">Direct bank payments after job completion</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div></element><element id="0128f98a-f8da-4c7d-81e1-098ab1090f8b" data-section-id="0128f98a-f8da-4c7d-81e1-098ab1090f8b">
+
+<div id="root">
+  <section id="features" class="py-20 bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white mb-4 font-['Poppins'] animate__animated animate__fadeIn">Key Features</h2>
+        <p class="text-xl text-gray-300 font-['Inter']">Powered by cutting-edge AI technology</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-neutral-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp">
+          <div class="h-16 w-16 bg-[#003366] rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3 font-['Poppins']">AI-Powered Instant Hiring</h3>
+          <p class="text-gray-300 font-['Inter']">Find workers in minutes with our intelligent matching system</p>
+        </div>
+
+        <div class="bg-neutral-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+          <div class="h-16 w-16 bg-[#28A745] rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3 font-['Poppins']">Verified Workers</h3>
+          <p class="text-gray-300 font-['Inter']">ID & skill verification for complete trust and reliability</p>
+        </div>
+
+        <div class="bg-neutral-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+          <div class="h-16 w-16 bg-[#FF9800] rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3 font-['Poppins']">Fair Wage Calculator</h3>
+          <p class="text-gray-300 font-['Inter']">AI suggests the best rates based on market standards</p>
+        </div>
+
+        <div class="bg-neutral-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+          <div class="h-16 w-16 bg-[#003366] rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3 font-['Poppins']">Location-Based Matching</h3>
+          <p class="text-gray-300 font-['Inter']">GPS search to find nearby workers instantly</p>
+        </div>
+
+        <div class="bg-neutral-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+          <div class="h-16 w-16 bg-[#28A745] rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3 font-['Poppins']">Secure Payments</h3>
+          <p class="text-gray-300 font-['Inter']">Escrow system ensures safe transactions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div></element><element id="9852ad14-227a-4cb2-86d1-63d6600dbdc4" data-section-id="9852ad14-227a-4cb2-86d1-63d6600dbdc4">
+
+<div id="root">
+  <section id="worker-categories" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-[#003366] mb-4 font-['Poppins'] animate__animated animate__fadeIn">Available Worker Categories</h2>
+        <p class="text-xl text-gray-600 font-['Inter']">Find skilled professionals for every job</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="group bg-neutral-50 rounded-xl p-6 text-center hover:bg-[#003366] transition-all duration-300 cursor-pointer animate__animated animate__fadeInUp">
+          <div class="h-16 w-16 mx-auto bg-[#28A745] rounded-full flex items-center justify-center mb-4 group-hover:bg-white transition-colors duration-300">
+            <svg class="w-8 h-8 text-white group-hover:text-[#28A745]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 group-hover:text-white mb-2 font-['Poppins']">Carpenter</h3>
+          <p class="text-sm text-gray-600 group-hover:text-gray-300 font-['Inter']">Furniture & Woodwork</p>
+        </div>
+
+        <div class="group bg-neutral-50 rounded-xl p-6 text-center hover:bg-[#003366] transition-all duration-300 cursor-pointer animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+          <div class="h-16 w-16 mx-auto bg-[#FF9800] rounded-full flex items-center justify-center mb-4 group-hover:bg-white transition-colors duration-300">
+            <svg class="w-8 h-8 text-white group-hover:text-[#FF9800]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 group-hover:text-white mb-2 font-['Poppins']">Electrician</h3>
+          <p class="text-sm text-gray-600 group-hover:text-gray-300 font-['Inter']">Electrical Work</p>
+        </div>
+
+        <div class="group bg-neutral-50 rounded-xl p-6 text-center hover:bg-[#003366] transition-all duration-300 cursor-pointer animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+          <div class="h-16 w-16 mx-auto bg-[#28A745] rounded-full flex items-center justify-center mb-4 group-hover:bg-white transition-colors duration-300">
+            <svg class="w-8 h-8 text-white group-hover:text-[#28A745]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 group-hover:text-white mb-2 font-['Poppins']">Plumber</h3>
+          <p class="text-sm text-gray-600 group-hover:text-gray-300 font-['Inter']">Plumbing Services</p>
+        </div>
+
+        <div class="group bg-neutral-50 rounded-xl p-6 text-center hover:bg-[#003366] transition-all duration-300 cursor-pointer animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+          <div class="h-16 w-16 mx-auto bg-[#FF9800] rounded-full flex items-center justify-center mb-4 group-hover:bg-white transition-colors duration-300">
+            <svg class="w-8 h-8 text-white group-hover:text-[#FF9800]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 group-hover:text-white mb-2 font-['Poppins']">Painter</h3>
+          <p class="text-sm text-gray-600 group-hover:text-gray-300 font-['Inter']">Painting Services</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <button class="bg-[#003366] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#002347] transition duration-300 transform hover:scale-105 font-['Poppins']">
+          View All Categories
+        </button>
+      </div>
+    </div>
+  </section>
+</div></element><element id="08332669-5807-4be1-ba66-b4dde2907f5b" data-section-id="08332669-5807-4be1-ba66-b4dde2907f5b">
+
+<div id="root">
+  <section id="testimonials" class="py-20 bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white mb-4 font-['Poppins'] animate__animated animate__fadeIn">Success Stories</h2>
+        <p class="text-xl text-gray-300 font-['Inter']">What our community says about us</p>
+      </div>
+
+      <div class="testimonial-carousel relative">
+        <div class="overflow-hidden">
+          <div class="flex transition-transform duration-500 ease-in-out">
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+              <div class="bg-neutral-800 rounded-xl p-8 h-full">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-[#28A745] rounded-full flex items-center justify-center text-white font-bold text-xl">R</div>
+                  <div class="ml-4">
+                    <h3 class="text-white font-semibold font-['Poppins']">Rahul S.</h3>
+                    <p class="text-gray-400 text-sm font-['Inter']">Homeowner</p>
+                  </div>
+                </div>
+                <p class="text-gray-300 font-['Inter'] leading-relaxed mb-6">"Beloyee helped me find skilled labor in minutes. Highly recommended!"</p>
+                <div class="flex text-[#FF9800]">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+              <div class="bg-neutral-800 rounded-xl p-8 h-full">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-[#FF9800] rounded-full flex items-center justify-center text-white font-bold text-xl">S</div>
+                  <div class="ml-4">
+                    <h3 class="text-white font-semibold font-['Poppins']">Sunil M.</h3>
+                    <p class="text-gray-400 text-sm font-['Inter']">Mason</p>
+                  </div>
+                </div>
+                <p class="text-gray-300 font-['Inter'] leading-relaxed mb-6">"This platform gave me more work opportunities. I now have a stable income!"</p>
+                <div class="flex text-[#FF9800]">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2 focus:outline-none carousel-prev">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2 focus:outline-none carousel-next">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const carousel = document.querySelector('.testimonial-carousel .flex');
+      const prevBtn = document.querySelector('.carousel-prev');
+      const nextBtn = document.querySelector('.carousel-next');
+      let position = 0;
+
+      function slide(direction) {
+        const slideWidth = document.querySelector('.testimonial-carousel .flex > div').offsetWidth;
+        const maxPosition = carousel.children.length - 1;
+        
+        if (direction === 'next' && position < maxPosition) {
+          position++;
+        } else if (direction === 'prev' && position > 0) {
+          position--;
+        }
+
+        carousel.style.transform = `translateX(-${position * slideWidth}px)`;
+      }
+
+      prevBtn.addEventListener('click', () => slide('prev'));
+      nextBtn.addEventListener('click', () => slide('next'));
+
+      // Auto slide
+      setInterval(() => {
+        if (position === carousel.children.length - 1) {
+          position = -1;
+        }
+        slide('next');
+      }, 5000);
+    </script>
+  </section>
+</div></element><element id="8657f985-d291-4a0c-ac4a-4c4abb47da38" data-section-id="8657f985-d291-4a0c-ac4a-4c4abb47da38">
+
+<div id="root">
+  <section id="download-app" class="py-20 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="flex-1 animate__animated animate__fadeInLeft">
+          <h2 class="text-4xl font-bold text-[#003366] mb-6 font-['Poppins']">Download the Beloyee App</h2>
+          <p class="text-xl text-gray-600 mb-8 font-['Inter']">Get instant access to skilled workers and job opportunities on your mobile device</p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 bg-[#28A745]/10 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-[#28A745]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2 font-['Poppins']">Easy to Use Interface</h3>
+                <p class="text-gray-600 font-['Inter']">Simple and intuitive design for seamless navigation</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 bg-[#FF9800]/10 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-[#FF9800]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2 font-['Poppins']">Real-time Updates</h3>
+                <p class="text-gray-600 font-['Inter']">Instant notifications for new jobs and offers</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 bg-[#003366]/10 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-[#003366]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2 font-['Poppins']">Secure Transactions</h3>
+                <p class="text-gray-600 font-['Inter']">Safe and reliable payment system</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4 mt-12">
+            <button class="flex items-center space-x-3 bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition duration-300">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.928 19.177c-.473.411-1.004.787-1.59 1.125-.736.425-1.365.65-1.89.675-.412.025-.822-.035-1.23-.18-.408-.145-.783-.34-1.125-.585-.342-.245-.726-.37-1.154-.37-.444 0-.842.125-1.195.375-.353.25-.738.445-1.155.585-.417.14-.815.2-1.194.18-.51-.025-1.135-.25-1.875-.675-.585-.338-1.12-.714-1.605-1.125-1.036-.902-1.875-1.937-2.516-3.105C1.733 14.722 1.333 13.557 1.333 12c0-1.888.583-3.465 1.747-4.731 1.164-1.266 2.57-1.91 4.215-1.935.473 0 .986.106 1.537.316.551.21 1.011.421 1.378.632.368.21.642.316.825.316.164 0 .422-.098.773-.293.351-.195.815-.406 1.389-.632.574-.227 1.102-.345 1.583-.353 1.076.02 2.02.306 2.831.857.811.552 1.441 1.283 1.89 2.194-1.035.576-1.788 1.352-2.257 2.326-.47.974-.615 2.063-.436 3.269.164 1.076.519 2 1.066 2.77.547.77 1.156 1.322 1.826 1.653-.164.444-.34.866-.526 1.266M12.12 1.333c0 .878-.303 1.688-.907 2.43-.604.741-1.378 1.194-2.22 1.336-.02-.164-.03-.337-.03-.518 0-.839.342-1.638 1.007-2.379.332-.38.754-.695 1.266-.947.511-.247.994-.383 1.447-.41.013.164.02.327.02.488"/>
+              </svg>
+              <div class="text-left">
+                <div class="text-xs">Download on the</div>
+                <div class="text-xl font-semibold font-['Poppins']">App Store</div>
+              </div>
+            </button>
+
+            <button class="flex items-center space-x-3 bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition duration-300">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a2.089 2.089 0 01-.567-1.634V3.448c0-.637.209-1.22.566-1.634zm9.841 10.521l3.005 3.005-9.748 5.714 6.743-8.719zm3.172-3.172l3.004 3.004c.526.528.789 1.212.789 1.897 0 .684-.263 1.369-.789 1.896l-2.906 2.907-3.003-3.003 2.905-2.701zm-13.008-7.2l9.748 5.714-3.006 3.005-6.742-8.719z"/>
+              </svg>
+              <div class="text-left">
+                <div class="text-xs">GET IT ON</div>
+                <div class="text-xl font-semibold font-['Poppins']">Google Play</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex-1 relative animate__animated animate__fadeInRight">
+          <div class="relative">
+            <div class="absolute -inset-4">
+              <div class="w-full h-full mx-auto rotate-30 blur-3xl bg-gradient-to-r from-[#28A745] to-[#003366] opacity-30"></div>
+            </div>
+            <div class="relative bg-white p-8 rounded-[2.5rem] shadow-xl">
+              <div class="aspect-[9/16] rounded-[2rem] bg-neutral-900 overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-b from-[#003366] to-[#28A745] opacity-90 flex items-center justify-center">
+                  <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div></element><element id="848c7219-a189-42f4-96d2-c5ee5c3c74be" data-section-id="848c7219-a189-42f4-96d2-c5ee5c3c74be">
+
+
+<div id="root">
+  <section id="contact" class="bg-neutral-900 py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-white mb-4">Get Started Today</h2>
+          <p class="text-neutral-400">Join the platform and start hiring or get hired</p>
+        </div>
+
+        <div class="bg-neutral-800 rounded-xl p-8 shadow-xl">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-neutral-300 mb-2">Full Name</label>
+                <input type="text" class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white" placeholder="Enter your name">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-neutral-300 mb-2">Phone Number</label>
+                <input type="tel" class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white" placeholder="Enter your phone number">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-neutral-300 mb-2">Select Category</label>
+              <select class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white">
+                <option value="">Choose your role</option>
+                <option value="employer">Employer</option>
+                <option value="worker">Worker</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-neutral-300 mb-2">Location</label>
+              <div class="relative">
+                <input type="text" class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white" placeholder="Your location">
+                <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <button type="submit" class="flex-1 bg-[#28A745] hover:bg-[#218838] text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                Sign Up Now
+              </button>
+              <button type="button" class="flex-1 bg-[#003366] hover:bg-[#002755] text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                Login with WhatsApp
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-6 text-center text-neutral-400 text-sm">
+            <p>By signing up, you agree to our <a href="#" class="text-blue-400 hover:text-blue-300">Terms of Service</a> and <a href="#" class="text-blue-400 hover:text-blue-300">Privacy Policy</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="18f96f1c-1fe3-437f-9efe-c5544354f405" data-section-id="18f96f1c-1fe3-437f-9efe-c5544354f405">
+
+
+<div id="root">
+  <footer id="footer" class="bg-neutral-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Beloyee</h3>
+          <p class="text-neutral-400 mb-4">Connect with skilled workers instantly for your daily wage work needs.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <span class="sr-only">Facebook</span>
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <span class="sr-only">Twitter</span>
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <span class="sr-only">LinkedIn</span>
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">For Employers</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">For Workers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4">Support</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Help Center</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4">Language</h3>
+          <select class="w-full bg-neutral-800 text-white rounded-lg px-4 py-2 mb-4">
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+            <option value="bn">বাংলা</option>
+            <option value="te">తెలుగు</option>
+          </select>
+          <div class="bg-neutral-800 p-4 rounded-lg">
+            <p class="text-sm text-neutral-400">Need help?</p>
+            <a href="#" class="inline-flex items-center text-[#28A745] hover:text-[#218838] mt-2">
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.001l-1.314 3.942a1 1 0 001.262 1.262l3.942-1.314C8.47 21.513 10.179 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+              </svg>
+              Chat with Support
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-neutral-800 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-neutral-400 text-sm">© 2024 Beloyee. All rights reserved.</p>
+          <div class="flex items-center space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-neutral-400 hover:text-white text-sm">Terms</a>
+            <a href="#" class="text-neutral-400 hover:text-white text-sm">Privacy</a>
+            <a href="#" class="text-neutral-400 hover:text-white text-sm">Security</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</element></div>
+            <div id="page_complete">
+            <script src="/edit/edit.js"></script>
+            <script>
+                console.log('Page complete');
+                
+            </script>
+            </body>
+            </html>
+          
