@@ -1,0 +1,1246 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      
+      <title>{{project.seoTitle}}</title>
+      <!-- SEO Description -->
+      <meta name="description" content="{{project.seoDescription}}">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+       
+      
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  DEFAULT: '{{settings.colors.primary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8', 
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '{{settings.colors.secondary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3', 
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '{{settings.colors.accent}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3', 
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['{{settings.fonts.primary}}', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+                body: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      });
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="keywords" content="{{project.meta.keywords}}">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+      <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+      <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+      <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+      <meta property="og:title" content="{{project.meta.ogTitle}}">
+      <meta property="og:description" content="{{project.meta.ogDescription}}">
+      <meta property="og:image" content="{{project.meta.ogImage}}">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{project.name}}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+      <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+      <meta name="twitter:image" content="{{project.meta.ogImage}}">
+    
+      
+      <link rel="icon" type="image/x-icon" href="{{settings.favicon}}">
+      
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: {{settings.fonts.primary}}, Inter, system-ui, sans-serif;
+        }
+        body {
+          font-family: {{settings.fonts.secondary}}, Inter, system-ui, sans-serif;
+        }
+      </style>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative h-full">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+      
+   </body>
+</html><script>window.projectId = "654a58f5-d21b-4e4b-bb54-9d80d2e22012";</script><div id='RolloutPageContent'><element id="4260db06-d937-4c9c-b918-7b61241793c5" data-section-id="4260db06-d937-4c9c-b918-7b61241793c5">
+
+
+<div id="root">
+  <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-neutral-200" aria-label="Main navigation">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0">
+          <a href="#" class="flex items-center">
+            <span class="text-2xl font-bold text-[#4169E1] font-['Poppins']">Labora</span>
+          </a>
+        </div>
+        
+        <div class="hidden md:block">
+          <ul class="flex space-x-8">
+            <li>
+              <a href="#hero" class="text-neutral-600 hover:text-[#4169E1] px-3 py-2 text-sm font-medium font-['Inter']">Home</a>
+            </li>
+            <li>
+              <a href="#features" class="text-neutral-600 hover:text-[#4169E1] px-3 py-2 text-sm font-medium font-['Inter']">Features</a>
+            </li>
+            <li>
+              <a href="#how-it-works" class="text-neutral-600 hover:text-[#4169E1] px-3 py-2 text-sm font-medium font-['Inter']">How It Works</a>
+            </li>
+            <li>
+              <a href="#professionals" class="text-neutral-600 hover:text-[#4169E1] px-3 py-2 text-sm font-medium font-['Inter']">Professionals</a>
+            </li>
+            <li>
+              <a href="#testimonials" class="text-neutral-600 hover:text-[#4169E1] px-3 py-2 text-sm font-medium font-['Inter']">Testimonials</a>
+            </li>
+            <li>
+              <a href="#pricing" class="text-neutral-600 hover:text-[#4169E1] px-3 py-2 text-sm font-medium font-['Inter']">Pricing</a>
+            </li>
+            <li>
+              <a href="#faq" class="text-neutral-600 hover:text-[#4169E1] px-3 py-2 text-sm font-medium font-['Inter']">FAQ</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-4">
+          <button class="bg-white text-[#4169E1] border border-[#4169E1] px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#4169E1] hover:text-white transition duration-300">
+            Login
+          </button>
+          <button class="bg-[#2ECC71] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#25a35a] transition duration-300">
+            Sign Up
+          </button>
+        </div>
+
+        <button type="button" class="md:hidden bg-neutral-100 p-2 rounded-md" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="md:hidden hidden" id="mobile-menu">
+      <ul class="px-2 pt-2 pb-3 space-y-1">
+        <li>
+          <a href="#hero" class="text-neutral-600 hover:text-[#4169E1] block px-3 py-2 text-base font-medium font-['Inter']">Home</a>
+        </li>
+        <li>
+          <a href="#features" class="text-neutral-600 hover:text-[#4169E1] block px-3 py-2 text-base font-medium font-['Inter']">Features</a>
+        </li>
+        <li>
+          <a href="#how-it-works" class="text-neutral-600 hover:text-[#4169E1] block px-3 py-2 text-base font-medium font-['Inter']">How It Works</a>
+        </li>
+        <li>
+          <a href="#professionals" class="text-neutral-600 hover:text-[#4169E1] block px-3 py-2 text-base font-medium font-['Inter']">Professionals</a>
+        </li>
+        <li>
+          <a href="#testimonials" class="text-neutral-600 hover:text-[#4169E1] block px-3 py-2 text-base font-medium font-['Inter']">Testimonials</a>
+        </li>
+        <li>
+          <a href="#pricing" class="text-neutral-600 hover:text-[#4169E1] block px-3 py-2 text-base font-medium font-['Inter']">Pricing</a>
+        </li>
+        <li>
+          <a href="#faq" class="text-neutral-600 hover:text-[#4169E1] block px-3 py-2 text-base font-medium font-['Inter']">FAQ</a>
+        </li>
+        <li class="pt-4">
+          <button class="w-full bg-white text-[#4169E1] border border-[#4169E1] px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#4169E1] hover:text-white transition duration-300 mb-2">
+            Login
+          </button>
+          <button class="w-full bg-[#2ECC71] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#25a35a] transition duration-300">
+            Sign Up
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      mobileMenuButton.setAttribute('aria-expanded', !expanded);
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</div>
+</element><element id="e9596308-f13b-4ead-98e8-1ff2c26ee440" data-section-id="e9596308-f13b-4ead-98e8-1ff2c26ee440">
+
+
+<div id="root">
+  <section id="hero" class="relative min-h-[70vh] bg-gradient-to-br from-[#4169E1] to-[#FF6F61] pt-20">
+    <div class="absolute inset-0 bg-gradient-to-b from-neutral-900/50 to-neutral-900/20"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div class="flex-1 text-center lg:text-left">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-['Poppins'] animate__animated animate__fadeInUp">
+            Hire Talent & Labor Instantly – Fast, Affordable, Reliable!
+          </h1>
+          
+          <p class="mt-6 text-lg md:text-xl text-white/90 font-['Inter'] max-w-2xl animate__animated animate__fadeInUp animate__delay-1s">
+            From software engineers to skilled laborers—find the right people for your startup or home in minutes. Enjoy AI-powered matching, secure payments, and verified professionals.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate__animated animate__fadeInUp animate__delay-2s">
+            <button class="px-8 py-4 bg-[#2ECC71] text-white rounded-lg text-lg font-semibold hover:bg-[#25a35a] transition duration-300 transform hover:scale-105">
+              Hire Talent Now
+            </button>
+            <button class="px-8 py-4 bg-white text-[#4169E1] rounded-lg text-lg font-semibold hover:bg-neutral-100 transition duration-300 transform hover:scale-105">
+              Find Work & Get Hired
+            </button>
+          </div>
+
+          <div class="mt-12 max-w-2xl mx-auto lg:mx-0 animate__animated animate__fadeInUp animate__delay-3s">
+            <div class="bg-white p-4 rounded-lg shadow-xl">
+              <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1">
+                  <div class="relative">
+                    <input type="text" placeholder="Enter your location" class="w-full px-4 py-3 rounded border border-neutral-200 focus:ring-2 focus:ring-[#4169E1] focus:border-transparent outline-none" />
+                    <button class="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <select class="w-full px-4 py-3 rounded border border-neutral-200 focus:ring-2 focus:ring-[#4169E1] focus:border-transparent outline-none appearance-none bg-white">
+                    <option value="">Select Skill Category</option>
+                    <option value="sde">Software Engineer</option>
+                    <option value="designer">Designer</option>
+                    <option value="electrician">Electrician</option>
+                    <option value="plumber">Plumber</option>
+                    <option value="carpenter">Carpenter</option>
+                  </select>
+                </div>
+                <button class="px-6 py-3 bg-[#FF6F61] text-white rounded font-semibold hover:bg-[#ff5745] transition duration-300">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-1 relative animate__animated animate__fadeIn animate__delay-4s">
+          <div class="absolute -top-8 -left-8 w-24 h-24 bg-[#FF6F61] rounded-full opacity-20 animate-pulse"></div>
+          <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-[#2ECC71] rounded-full opacity-20 animate-pulse"></div>
+          <div class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white/20 rounded-lg p-6 backdrop-blur-sm">
+                <svg class="w-12 h-12 text-white mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+                <p class="text-white font-semibold">Corporate Hiring</p>
+              </div>
+              <div class="bg-white/20 rounded-lg p-6 backdrop-blur-sm">
+                <svg class="w-12 h-12 text-white mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                <p class="text-white font-semibold">Home Services</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg class="fill-white" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,50 C150,100 350,0 500,50 C650,100 800,0 1000,50 C1200,100 1350,0 1440,50 L1440,100 L0,100 Z"></path>
+      </svg>
+    </div>
+  </section>
+</div>
+</element><element id="71e1001b-1413-4b09-9b57-e8393a535567" data-section-id="71e1001b-1413-4b09-9b57-e8393a535567">
+
+
+<div id="root">
+  <section id="features" class="py-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-neutral-900 font-['Poppins'] animate__animated animate__fadeInUp">
+          Key Features
+        </h2>
+        <p class="mt-4 text-lg text-neutral-600 font-['Inter'] animate__animated animate__fadeInUp animate__delay-1s">
+          Discover why businesses and professionals trust Labora
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="w-16 h-16 bg-[#4169E1]/10 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-[#4169E1]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4 font-['Poppins']">AI-Powered Instant Hiring</h3>
+          <p class="text-neutral-600 font-['Inter']">Find the perfect match instantly with our advanced AI matching algorithm that connects you with the right talent.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="w-16 h-16 bg-[#2ECC71]/10 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4 font-['Poppins']">Verified Professionals</h3>
+          <p class="text-neutral-600 font-['Inter']">Every professional undergoes thorough verification including ID and skill assessment for complete peace of mind.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate__animated animate__fadeInUp animate__delay-4s">
+          <div class="w-16 h-16 bg-[#FF6F61]/10 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-[#FF6F61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4 font-['Poppins']">Smart Wage Calculator</h3>
+          <p class="text-neutral-600 font-['Inter']">Get AI-suggested fair wage rates based on market analysis and skill requirements.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate__animated animate__fadeInUp animate__delay-5s">
+          <div class="w-16 h-16 bg-[#4169E1]/10 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-[#4169E1]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4 font-['Poppins']">GPS-Based Matching</h3>
+          <p class="text-neutral-600 font-['Inter']">Find professionals near you with real-time location-based matching and availability tracking.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate__animated animate__fadeInUp animate__delay-5s">
+          <div class="w-16 h-16 bg-[#2ECC71]/10 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4 font-['Poppins']">Secure Payments</h3>
+          <p class="text-neutral-600 font-['Inter']">Enjoy peace of mind with our secure escrow system and automated invoicing process.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate__animated animate__fadeInUp animate__delay-5s">
+          <div class="w-16 h-16 bg-[#FF6F61]/10 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-[#FF6F61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4 font-['Poppins']">Smart Contracts</h3>
+          <p class="text-neutral-600 font-['Inter']">Automated contract generation with clear terms and milestones for both parties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="2cb97cca-f747-457a-b7f8-6089f08ac43a" data-section-id="2cb97cca-f747-457a-b7f8-6089f08ac43a">
+
+
+<div id="root">
+  <section id="how-it-works" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-neutral-900 font-['Poppins'] animate__animated animate__fadeInUp">
+          How It Works
+        </h2>
+        <p class="mt-4 text-lg text-neutral-600 font-['Inter'] animate__animated animate__fadeInUp animate__delay-1s">
+          Simple steps to start hiring or get hired
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16">
+        <!-- For Businesses & Homeowners -->
+        <div class="space-y-12">
+          <h3 class="text-2xl font-bold text-[#4169E1] font-['Poppins'] animate__animated animate__fadeInUp">
+            For Businesses & Homeowners
+          </h3>
+          
+          <div class="relative pl-16 animate__animated animate__fadeInLeft animate__delay-2s">
+            <div class="absolute left-0 top-0 w-12 h-12 bg-[#4169E1]/10 rounded-full flex items-center justify-center">
+              <span class="text-xl font-bold text-[#4169E1]">1</span>
+            </div>
+            <div class="border-l-2 border-[#4169E1]/20 pl-8 pb-8">
+              <h4 class="text-xl font-bold text-neutral-900 mb-2 font-['Poppins']">Post a Job</h4>
+              <p class="text-neutral-600 font-['Inter']">Describe your requirements and expectations in detail</p>
+            </div>
+          </div>
+
+          <div class="relative pl-16 animate__animated animate__fadeInLeft animate__delay-3s">
+            <div class="absolute left-0 top-0 w-12 h-12 bg-[#2ECC71]/10 rounded-full flex items-center justify-center">
+              <span class="text-xl font-bold text-[#2ECC71]">2</span>
+            </div>
+            <div class="border-l-2 border-[#2ECC71]/20 pl-8 pb-8">
+              <h4 class="text-xl font-bold text-neutral-900 mb-2 font-['Poppins']">AI Talent Match</h4>
+              <p class="text-neutral-600 font-['Inter']">Get instant recommendations for the best available talent</p>
+            </div>
+          </div>
+
+          <div class="relative pl-16 animate__animated animate__fadeInLeft animate__delay-4s">
+            <div class="absolute left-0 top-0 w-12 h-12 bg-[#FF6F61]/10 rounded-full flex items-center justify-center">
+              <span class="text-xl font-bold text-[#FF6F61]">3</span>
+            </div>
+            <div class="pl-8">
+              <h4 class="text-xl font-bold text-neutral-900 mb-2 font-['Poppins']">Hire & Pay Securely</h4>
+              <p class="text-neutral-600 font-['Inter']">Complete transactions via UPI, Razorpay, or bank transfer</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- For Workers & Professionals -->
+        <div class="space-y-12">
+          <h3 class="text-2xl font-bold text-[#FF6F61] font-['Poppins'] animate__animated animate__fadeInUp">
+            For Workers & Professionals
+          </h3>
+          
+          <div class="relative pl-16 animate__animated animate__fadeInRight animate__delay-2s">
+            <div class="absolute left-0 top-0 w-12 h-12 bg-[#4169E1]/10 rounded-full flex items-center justify-center">
+              <span class="text-xl font-bold text-[#4169E1]">1</span>
+            </div>
+            <div class="border-l-2 border-[#4169E1]/20 pl-8 pb-8">
+              <h4 class="text-xl font-bold text-neutral-900 mb-2 font-['Poppins']">Sign Up & Verify</h4>
+              <p class="text-neutral-600 font-['Inter']">Quick registration using phone or Aadhaar</p>
+            </div>
+          </div>
+
+          <div class="relative pl-16 animate__animated animate__fadeInRight animate__delay-3s">
+            <div class="absolute left-0 top-0 w-12 h-12 bg-[#2ECC71]/10 rounded-full flex items-center justify-center">
+              <span class="text-xl font-bold text-[#2ECC71]">2</span>
+            </div>
+            <div class="border-l-2 border-[#2ECC71]/20 pl-8 pb-8">
+              <h4 class="text-xl font-bold text-neutral-900 mb-2 font-['Poppins']">Receive Job Offers</h4>
+              <p class="text-neutral-600 font-['Inter']">Get matched with suitable tasks based on your skills</p>
+            </div>
+          </div>
+
+          <div class="relative pl-16 animate__animated animate__fadeInRight animate__delay-4s">
+            <div class="absolute left-0 top-0 w-12 h-12 bg-[#FF6F61]/10 rounded-full flex items-center justify-center">
+              <span class="text-xl font-bold text-[#FF6F61]">3</span>
+            </div>
+            <div class="pl-8">
+              <h4 class="text-xl font-bold text-neutral-900 mb-2 font-['Poppins']">Get Paid Instantly</h4>
+              <p class="text-neutral-600 font-['Inter']">Enjoy secure and timely payments for your work</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="83adebb7-557b-427b-9749-b25af72d1e43" data-section-id="83adebb7-557b-427b-9749-b25af72d1e43">
+
+<div id="root">
+  <section id="professionals" class="py-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-neutral-900 font-['Poppins'] animate__animated animate__fadeInUp">
+          Find Skilled Professionals
+        </h2>
+        <p class="mt-4 text-lg text-neutral-600 font-['Inter'] animate__animated animate__fadeInUp animate__delay-1s">
+          Connect with verified experts across various domains
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Tech Professionals -->
+        <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-all duration-300 animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="bg-gradient-to-r from-[#4169E1] to-[#2ECC71] rounded-lg p-4 mb-6">
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4 font-['Poppins']">Tech Professionals</h3>
+          <ul class="space-y-3 text-neutral-600 font-['Inter']">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Software Engineers
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              UI/UX Designers
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Data Scientists
+            </li>
+          </ul>
+        </div>
+
+        <!-- Home Services -->
+        <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-all duration-300 animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="bg-gradient-to-r from-[#FF6F61] to-[#4169E1] rounded-lg p-4 mb-6">
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4 font-['Poppins']">Home Services</h3>
+          <ul class="space-y-3 text-neutral-600 font-['Inter']">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Electricians
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Plumbers
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Carpenters
+            </li>
+          </ul>
+        </div>
+
+        <!-- Creative Professionals -->
+        <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-all duration-300 animate__animated animate__fadeInUp animate__delay-4s">
+          <div class="bg-gradient-to-r from-[#2ECC71] to-[#FF6F61] rounded-lg p-4 mb-6">
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4 font-['Poppins']">Creative Professionals</h3>
+          <ul class="space-y-3 text-neutral-600 font-['Inter']">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Graphic Designers
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Content Writers
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Digital Marketers
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <button class="px-8 py-4 bg-[#4169E1] text-white rounded-lg text-lg font-semibold hover:bg-[#3557b7] transition duration-300 transform hover:scale-105 animate__animated animate__fadeInUp animate__delay-5s">
+          Browse All Categories
+        </button>
+      </div>
+    </div>
+  </section>
+</div></element><element id="e21330e2-946a-42cd-a531-f74a79c6748c" data-section-id="e21330e2-946a-42cd-a531-f74a79c6748c">
+
+<div id="root">
+  <section id="testimonials" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-neutral-900 font-['Poppins'] animate__animated animate__fadeInUp">
+          Success Stories
+        </h2>
+        <p class="mt-4 text-lg text-neutral-600 font-['Inter'] animate__animated animate__fadeInUp animate__delay-1s">
+          Hear from our satisfied clients and professionals
+        </p>
+      </div>
+
+      <div class="relative" x-data="{ activeSlide: 0 }">
+        <div class="overflow-hidden">
+          <div class="flex transition-transform duration-500" :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
+            <!-- Testimonial 1 -->
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="bg-gradient-to-r from-[#4169E1]/10 to-[#FF6F61]/10 rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col items-center">
+                  <div class="w-20 h-20 bg-gradient-to-r from-[#4169E1] to-[#FF6F61] rounded-full flex items-center justify-center text-2xl text-white font-bold mb-6">
+                    AS
+                  </div>
+                  <blockquote class="text-xl md:text-2xl text-neutral-800 text-center mb-6 font-['Inter']">
+                    "Labora helped me find the perfect SDE for my startup in hours!"
+                  </blockquote>
+                  <cite class="text-neutral-600 font-semibold block text-center">
+                    Ankit S.
+                    <span class="text-neutral-500 font-normal block">Founder, AI Startup</span>
+                  </cite>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="bg-gradient-to-r from-[#2ECC71]/10 to-[#4169E1]/10 rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col items-center">
+                  <div class="w-20 h-20 bg-gradient-to-r from-[#2ECC71] to-[#4169E1] rounded-full flex items-center justify-center text-2xl text-white font-bold mb-6">
+                    RT
+                  </div>
+                  <blockquote class="text-xl md:text-2xl text-neutral-800 text-center mb-6 font-['Inter']">
+                    "I was able to hire an electrician within minutes for my home repairs."
+                  </blockquote>
+                  <cite class="text-neutral-600 font-semibold block text-center">
+                    Ravi T.
+                    <span class="text-neutral-500 font-normal block">Homeowner</span>
+                  </cite>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="bg-gradient-to-r from-[#FF6F61]/10 to-[#2ECC71]/10 rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col items-center">
+                  <div class="w-20 h-20 bg-gradient-to-r from-[#FF6F61] to-[#2ECC71] rounded-full flex items-center justify-center text-2xl text-white font-bold mb-6">
+                    PM
+                  </div>
+                  <blockquote class="text-xl md:text-2xl text-neutral-800 text-center mb-6 font-['Inter']">
+                    "This platform gave me stable freelance work and increased my income."
+                  </blockquote>
+                  <cite class="text-neutral-600 font-semibold block text-center">
+                    Priya M.
+                    <span class="text-neutral-500 font-normal block">UX Designer</span>
+                  </cite>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button class="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg -ml-6 focus:outline-none" @click="activeSlide = (activeSlide - 1 + 3) % 3">
+          <svg class="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <button class="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg -mr-6 focus:outline-none" @click="activeSlide = (activeSlide + 1) % 3">
+          <svg class="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <!-- Dots -->
+        <div class="flex justify-center mt-8 space-x-2">
+          <button class="w-3 h-3 rounded-full bg-neutral-300 focus:outline-none" :class="{ 'bg-[#4169E1]': activeSlide === 0 }" @click="activeSlide = 0"></button>
+          <button class="w-3 h-3 rounded-full bg-neutral-300 focus:outline-none" :class="{ 'bg-[#4169E1]': activeSlide === 1 }" @click="activeSlide = 1"></button>
+          <button class="w-3 h-3 rounded-full bg-neutral-300 focus:outline-none" :class="{ 'bg-[#4169E1]': activeSlide === 2 }" @click="activeSlide = 2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Auto-slide functionality
+    setInterval(() => {
+      const testimonials = document.querySelector('[x-data]').__x.$data;
+      testimonials.activeSlide = (testimonials.activeSlide + 1) % 3;
+    }, 5000);
+  </script>
+</div></element><element id="9a93320c-dec8-4c7e-9f8d-d46c008c5586" data-section-id="9a93320c-dec8-4c7e-9f8d-d46c008c5586">
+
+<div id="root">
+  <section id="pricing" class="py-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-neutral-900 font-['Poppins'] animate__animated animate__fadeInUp">
+          Simple & Transparent Pricing
+        </h2>
+        <p class="mt-4 text-lg text-neutral-600 font-['Inter'] animate__animated animate__fadeInUp animate__delay-1s">
+          Choose the perfect plan for your hiring needs
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Basic Plan -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 transform hover:-translate-y-2 transition-all duration-300 animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-neutral-900 mb-4 font-['Poppins']">Basic</h3>
+            <div class="flex justify-center items-baseline">
+              <span class="text-4xl font-bold text-[#4169E1]">₹999</span>
+              <span class="text-neutral-600 ml-2">/month</span>
+            </div>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center text-neutral-600">
+              <svg class="w-5 h-5 mr-3 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Up to 5 job postings
+            </li>
+            <li class="flex items-center text-neutral-600">
+              <svg class="w-5 h-5 mr-3 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Basic AI matching
+            </li>
+            <li class="flex items-center text-neutral-600">
+              <svg class="w-5 h-5 mr-3 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Email support
+            </li>
+          </ul>
+          <button class="w-full py-3 px-6 text-white bg-[#4169E1] rounded-lg hover:bg-[#3557b7] transition duration-300">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="bg-gradient-to-b from-[#4169E1] to-[#2ECC71] rounded-2xl shadow-lg p-8 transform hover:-translate-y-2 transition-all duration-300 md:-mt-4 relative animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="absolute top-0 right-0 bg-[#FF6F61] text-white px-4 py-1 rounded-tr-2xl rounded-bl-2xl text-sm font-semibold">
+            Popular
+          </div>
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-white mb-4 font-['Poppins']">Pro</h3>
+            <div class="flex justify-center items-baseline">
+              <span class="text-4xl font-bold text-white">₹2499</span>
+              <span class="text-white/80 ml-2">/month</span>
+            </div>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center text-white">
+              <svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Unlimited job postings
+            </li>
+            <li class="flex items-center text-white">
+              <svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Advanced AI matching
+            </li>
+            <li class="flex items-center text-white">
+              <svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Priority support 24/7
+            </li>
+            <li class="flex items-center text-white">
+              <svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Custom branding
+            </li>
+          </ul>
+          <button class="w-full py-3 px-6 text-[#4169E1] bg-white rounded-lg hover:bg-neutral-100 transition duration-300">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 transform hover:-translate-y-2 transition-all duration-300 animate__animated animate__fadeInUp animate__delay-4s">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-neutral-900 mb-4 font-['Poppins']">Enterprise</h3>
+            <div class="flex justify-center items-baseline">
+              <span class="text-4xl font-bold text-[#4169E1]">Custom</span>
+            </div>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center text-neutral-600">
+              <svg class="w-5 h-5 mr-3 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Custom solutions
+            </li>
+            <li class="flex items-center text-neutral-600">
+              <svg class="w-5 h-5 mr-3 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Dedicated account manager
+            </li>
+            <li class="flex items-center text-neutral-600">
+              <svg class="w-5 h-5 mr-3 text-[#2ECC71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              API access
+            </li>
+          </ul>
+          <button class="w-full py-3 px-6 text-white bg-[#4169E1] rounded-lg hover:bg-[#3557b7] transition duration-300">
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div></element><element id="80c1da2d-72a9-494e-8fd0-13a902c6bc13" data-section-id="80c1da2d-72a9-494e-8fd0-13a902c6bc13">
+
+<div id="root">
+  <section id="cta" class="py-20 bg-gradient-to-br from-[#4169E1] to-[#FF6F61]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div class="text-center lg:text-left lg:w-1/2">
+          <h2 class="text-4xl md:text-5xl font-bold text-white font-['Poppins'] animate__animated animate__fadeInUp">
+            Start Hiring or Get Hired Today!
+          </h2>
+          <p class="mt-6 text-lg text-white/90 font-['Inter'] animate__animated animate__fadeInUp animate__delay-1s">
+            Join thousands of businesses and professionals on India's fastest-growing hiring platform
+          </p>
+        </div>
+
+        <div class="w-full lg:w-1/2 max-w-md mx-auto">
+          <div class="bg-white rounded-2xl shadow-xl p-8 animate__animated animate__fadeInUp animate__delay-2s">
+            <form class="space-y-6">
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-neutral-700 mb-1" for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" required 
+                    class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-[#4169E1] focus:border-transparent outline-none transition duration-300 hover:border-[#4169E1]"
+                    placeholder="+91 Your Phone Number">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-neutral-700 mb-1" for="name">Full Name</label>
+                  <input type="text" id="name" name="name" required
+                    class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-[#4169E1] focus:border-transparent outline-none transition duration-300 hover:border-[#4169E1]"
+                    placeholder="Your Full Name">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-neutral-700 mb-1" for="category">Skill Category</label>
+                  <select id="category" name="category" required
+                    class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-[#4169E1] focus:border-transparent outline-none transition duration-300 hover:border-[#4169E1]">
+                    <option value="">Select your category</option>
+                    <option value="sde">Software Engineer</option>
+                    <option value="designer">Designer</option>
+                    <option value="electrician">Electrician</option>
+                    <option value="plumber">Plumber</option>
+                    <option value="carpenter">Carpenter</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-neutral-700 mb-1" for="location">Location</label>
+                  <div class="relative">
+                    <input type="text" id="location" name="location" required
+                      class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-[#4169E1] focus:border-transparent outline-none transition duration-300 hover:border-[#4169E1]"
+                      placeholder="Your Location">
+                    <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-[#4169E1]">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-col space-y-4">
+                <button type="submit" class="w-full py-3 px-6 bg-[#2ECC71] text-white rounded-lg text-lg font-semibold hover:bg-[#25a35a] transition duration-300 transform hover:scale-105">
+                  Sign Up Now
+                </button>
+
+                <div class="relative">
+                  <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-neutral-300"></div>
+                  </div>
+                  <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white text-neutral-500">Or continue with</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <button type="button" class="flex items-center justify-center px-4 py-2 border border-neutral-300 rounded-lg hover:border-neutral-400 transition duration-300">
+                    <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24">
+                      <path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/>
+                      <path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96h-3.98v3.09C3.515 21.3 7.565 24 12.255 24z"/>
+                      <path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62h-3.98a11.86 11.86 0 000 10.76l3.98-3.09z"/>
+                      <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.69 0-8.74 2.7-10.71 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/>
+                    </svg>
+                    Google
+                  </button>
+                  <button type="button" class="flex items-center justify-center px-4 py-2 border border-neutral-300 rounded-lg hover:border-neutral-400 transition duration-300">
+                    <svg class="w-5 h-5 mr-2 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div></element><element id="42767b1b-4cb6-493f-9f80-1458efb1831e" data-section-id="42767b1b-4cb6-493f-9f80-1458efb1831e">
+
+<div id="root">
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-neutral-900 font-['Poppins'] animate__animated animate__fadeInUp">
+          Frequently Asked Questions
+        </h2>
+        <p class="mt-4 text-lg text-neutral-600 font-['Inter'] animate__animated animate__fadeInUp animate__delay-1s">
+          Find answers to common questions about our platform
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-6" x-data="{ activeTab: null }">
+        <!-- FAQ Item 1 -->
+        <div class="border border-neutral-200 rounded-lg animate__animated animate__fadeInUp animate__delay-2s">
+          <button class="w-full px-6 py-4 flex items-center justify-between focus:outline-none" @click="activeTab = activeTab === 1 ? null : 1">
+            <span class="text-lg font-semibold text-neutral-800 font-['Poppins']">How does the hiring process work?</span>
+            <svg class="w-5 h-5 text-neutral-500 transform transition-transform duration-300" :class="{ 'rotate-180': activeTab === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="px-6 pb-4" x-show="activeTab === 1" x-collapse>
+            <p class="text-neutral-600 font-['Inter']">Post your requirements, get AI-matched with qualified professionals, review profiles, and hire instantly. Our platform handles everything from verification to payments.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="border border-neutral-200 rounded-lg animate__animated animate__fadeInUp animate__delay-3s">
+          <button class="w-full px-6 py-4 flex items-center justify-between focus:outline-none" @click="activeTab = activeTab === 2 ? null : 2">
+            <span class="text-lg font-semibold text-neutral-800 font-['Poppins']">How are professionals verified?</span>
+            <svg class="w-5 h-5 text-neutral-500 transform transition-transform duration-300" :class="{ 'rotate-180': activeTab === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="px-6 pb-4" x-show="activeTab === 2" x-collapse>
+            <p class="text-neutral-600 font-['Inter']">We verify all professionals through ID checks, skill assessments, and background verification. Additionally, we collect and verify professional certifications where applicable.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="border border-neutral-200 rounded-lg animate__animated animate__fadeInUp animate__delay-4s">
+          <button class="w-full px-6 py-4 flex items-center justify-between focus:outline-none" @click="activeTab = activeTab === 3 ? null : 3">
+            <span class="text-lg font-semibold text-neutral-800 font-['Poppins']">What payment methods are supported?</span>
+            <svg class="w-5 h-5 text-neutral-500 transform transition-transform duration-300" :class="{ 'rotate-180': activeTab === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="px-6 pb-4" x-show="activeTab === 3" x-collapse>
+            <p class="text-neutral-600 font-['Inter']">We support multiple payment methods including UPI, credit/debit cards, net banking, and digital wallets. All payments are secured through our escrow system.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="border border-neutral-200 rounded-lg animate__animated animate__fadeInUp animate__delay-5s">
+          <button class="w-full px-6 py-4 flex items-center justify-between focus:outline-none" @click="activeTab = activeTab === 4 ? null : 4">
+            <span class="text-lg font-semibold text-neutral-800 font-['Poppins']">What if I'm not satisfied with the service?</span>
+            <svg class="w-5 h-5 text-neutral-500 transform transition-transform duration-300" :class="{ 'rotate-180': activeTab === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="px-6 pb-4" x-show="activeTab === 4" x-collapse>
+            <p class="text-neutral-600 font-['Inter']">We offer a satisfaction guarantee. If you're not satisfied with the service, our support team will work to resolve the issue or provide a refund as per our policy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-neutral-600 font-['Inter']">Still have questions?</p>
+        <button class="mt-4 px-8 py-3 bg-[#4169E1] text-white rounded-lg hover:bg-[#3557b7] transition duration-300 flex items-center justify-center mx-auto">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+          </svg>
+          Chat with Support
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Alpine.js accordion functionality
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('accordion', () => ({
+        tab: 0,
+        handleClick(clicked) {
+          this.tab = this.tab === clicked ? 0 : clicked
+        }
+      }))
+    })
+  </script>
+</div></element><element id="595ef8e8-05e9-4175-84cf-d19268ddcd7f" data-section-id="595ef8e8-05e9-4175-84cf-d19268ddcd7f">
+
+<div id="root">
+  <footer id="footer" class="bg-neutral-900 text-white pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Company Info -->
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-6 font-['Poppins']">Labora</h3>
+          <p class="text-neutral-400 mb-6 font-['Inter']">Connecting businesses with verified professionals and skilled laborers across India.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-6 font-['Poppins']">Quick Links</h4>
+          <ul class="space-y-4 font-['Inter']">
+            <li>
+              <a href="#about" class="text-neutral-400 hover:text-white transition-colors">About Us</a>
+            </li>
+            <li>
+              <a href="#privacy" class="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#terms" class="text-neutral-400 hover:text-white transition-colors">Terms of Service</a>
+            </li>
+            <li>
+              <a href="#contact" class="text-neutral-400 hover:text-white transition-colors">Contact</a>
+            </li>
+            <li>
+              <a href="#blog" class="text-neutral-400 hover:text-white transition-colors">Blog</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Languages -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-6 font-['Poppins']">Languages</h4>
+          <div class="grid grid-cols-2 gap-4">
+            <button class="flex items-center space-x-2 text-neutral-400 hover:text-white transition-colors">
+              <span>🇬🇧</span>
+              <span>English</span>
+            </button>
+            <button class="flex items-center space-x-2 text-neutral-400 hover:text-white transition-colors">
+              <span>🇮🇳</span>
+              <span>हिंदी</span>
+            </button>
+            <button class="flex items-center space-x-2 text-neutral-400 hover:text-white transition-colors">
+              <span>🇮🇳</span>
+              <span>தமிழ்</span>
+            </button>
+            <button class="flex items-center space-x-2 text-neutral-400 hover:text-white transition-colors">
+              <span>🇮🇳</span>
+              <span>বাংলা</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-6 font-['Poppins']">Contact Support</h4>
+          <div class="space-y-4">
+            <a href="#" class="flex items-center space-x-3 text-neutral-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              </svg>
+              <span>WhatsApp Support</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 text-neutral-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span>support@Labora.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-neutral-800 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-neutral-400 text-sm font-['Inter']">© 2024 Labora. All rights reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" class="text-neutral-400 hover:text-white text-sm transition-colors font-['Inter']">Privacy Policy</a>
+            <a href="#" class="text-neutral-400 hover:text-white text-sm transition-colors font-['Inter']">Terms of Service</a>
+            <a href="#" class="text-neutral-400 hover:text-white text-sm transition-colors font-['Inter']">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div></element></div>
+            <div id="page_complete">
+            <script src="/edit/edit.js"></script>
+            <script>
+                console.log('Page complete');
+                
+            </script>
+            </body>
+            </html>
+          
