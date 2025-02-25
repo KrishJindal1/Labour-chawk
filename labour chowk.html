@@ -1,0 +1,1132 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      
+      <title>{{project.seoTitle}}</title>
+      <!-- SEO Description -->
+      <meta name="description" content="{{project.seoDescription}}">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+       
+      
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  DEFAULT: '{{settings.colors.primary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8', 
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '{{settings.colors.secondary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3', 
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '{{settings.colors.accent}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3', 
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['{{settings.fonts.primary}}', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+                body: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      });
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="keywords" content="{{project.meta.keywords}}">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+      <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+      <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+      <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+      <meta property="og:title" content="{{project.meta.ogTitle}}">
+      <meta property="og:description" content="{{project.meta.ogDescription}}">
+      <meta property="og:image" content="{{project.meta.ogImage}}">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{project.name}}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+      <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+      <meta name="twitter:image" content="{{project.meta.ogImage}}">
+    
+      
+      <link rel="icon" type="image/x-icon" href="{{settings.favicon}}">
+      
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: {{settings.fonts.primary}}, Inter, system-ui, sans-serif;
+        }
+        body {
+          font-family: {{settings.fonts.secondary}}, Inter, system-ui, sans-serif;
+        }
+      </style>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative h-full">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+      
+   </body>
+</html><script>window.projectId = "9c84c0cf-bba6-4e1e-af03-86e03271c287";</script><div id='RolloutPageContent'><element id="517f9ec4-952b-4e09-9a08-6e082d008077" data-section-id="517f9ec4-952b-4e09-9a08-6e082d008077">
+
+
+<div id="root">
+  <nav class="bg-neutral-900 text-white fixed w-full z-50" id="header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <a href="#hero" class="text-2xl font-bold text-[#FF9800]">Labora</a>
+        </div>
+        
+        <div class="hidden md:block">
+          <ul class="flex space-x-8">
+              <li>
+                <a href="#hero" class="hover:text-[#FF9800] transition-colors">Home</a>
+              </li>
+              <li>
+                <a href="#how-it-works" class="hover:text-[#FF9800] transition-colors">How It Works</a>
+              </li>
+              <li>
+                <a href="#features" class="hover:text-[#FF9800] transition-colors">Features</a>
+              </li>
+              <li>
+                <a href="#talent-categories" class="hover:text-[#FF9800] transition-colors">Categories</a>
+              </li>
+              <li>
+                <a href="#success-stories" class="hover:text-[#FF9800] transition-colors">Success Stories</a>
+              </li>
+              <li>
+                <a href="#pricing" class="hover:text-[#FF9800] transition-colors">Pricing</a>
+              </li>
+              <li>
+                <a href="#signup" class="hover:text-[#FF9800] transition-colors">Sign Up</a>
+              </li>
+          </ul>
+        </div>
+
+        <div class="md:hidden">
+          <button type="button" id="mobile-menu-button" aria-label="Toggle menu" class="text-white hover:text-[#FF9800]">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="hidden md:hidden" id="mobile-menu">
+        <ul class="px-2 pt-2 pb-3 space-y-1">
+            <li>
+              <a href="#hero" class="block px-3 py-2 hover:text-[#FF9800] transition-colors">Home</a>
+            </li>
+            <li>
+              <a href="#how-it-works" class="block px-3 py-2 hover:text-[#FF9800] transition-colors">How It Works</a>
+            </li>
+            <li>
+              <a href="#features" class="block px-3 py-2 hover:text-[#FF9800] transition-colors">Features</a>
+            </li>
+            <li>
+              <a href="#talent-categories" class="block px-3 py-2 hover:text-[#FF9800] transition-colors">Categories</a>
+            </li>
+            <li>
+              <a href="#success-stories" class="block px-3 py-2 hover:text-[#FF9800] transition-colors">Success Stories</a>
+            </li>
+            <li>
+              <a href="#pricing" class="block px-3 py-2 hover:text-[#FF9800] transition-colors">Pricing</a>
+            </li>
+            <li>
+              <a href="#signup" class="block px-3 py-2 hover:text-[#FF9800] transition-colors">Sign Up</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</div>
+</element><element id="558523ab-94bc-4ad2-b351-651997fca42f" data-section-id="558523ab-94bc-4ad2-b351-651997fca42f">
+
+
+<div id="root">
+  <section id="hero" class="min-h-[70vh] bg-neutral-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#003366] to-neutral-900 opacity-90"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 relative z-10">
+      <div class="text-center animate__animated animate__fadeIn">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 font-[Poppins] leading-tight">
+          Hire Talent & Labor Instantly
+          <span class="block text-[#FF9800]">Fast, Affordable, Reliable!</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl mb-8 font-[Inter] text-gray-300 max-w-3xl mx-auto">
+          From software engineers to skilled laborers—find the right people for your startup or home in minutes. Enjoy AI-powered matching, secure payments, and verified professionals.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+          <button class="px-8 py-4 bg-[#28A745] hover:bg-[#218838] rounded-full text-white font-bold transition-all transform hover:scale-105 animate__animated animate__fadeInLeft">
+            Hire Talent Now
+          </button>
+          <button class="px-8 py-4 bg-[#003366] hover:bg-[#002244] rounded-full text-white font-bold transition-all transform hover:scale-105 animate__animated animate__fadeInRight">
+            Find Work & Get Hired
+          </button>
+        </div>
+
+        <div class="max-w-2xl mx-auto bg-white/10 backdrop-blur-lg rounded-lg p-4 animate__animated animate__fadeInUp">
+          <form class="flex flex-col md:flex-row gap-4">
+            <div class="flex-1">
+              <input type="text" placeholder="📍 Your Location" class="w-full px-4 py-3 bg-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF9800] transition-all" id="location-input">
+            </div>
+            <div class="flex-1">
+              <select class="w-full px-4 py-3 bg-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF9800] transition-all">
+                <option value="">Select Skill Category</option>
+                <option value="sde">Software Engineer</option>
+                <option value="designer">Designer</option>
+                <option value="electrician">Electrician</option>
+                <option value="plumber">Plumber</option>
+                <option value="carpenter">Carpenter</option>
+              </select>
+            </div>
+            <button type="submit" class="px-6 py-3 bg-[#FF9800] hover:bg-[#F57C00] rounded-lg font-bold transition-all transform hover:scale-105">
+              Search Now
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="text-neutral-800">
+        <path fill="currentColor" fill-opacity="1" d="M0,96L48,122.7C96,149,192,203,288,224C384,245,480,235,576,202.7C672,171,768,117,864,101.3C960,85,1056,107,1152,122.7C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <script>
+    // Get user's location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}+${position.coords.longitude}&key=YOUR_API_KEY`)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('location-input').value = data.results[0].formatted;
+          });
+      });
+    }
+
+    // Add floating animation to hero section elements
+    document.querySelectorAll('#hero h1, #hero p').forEach(element => {
+      element.style.animation = 'floating 3s ease-in-out infinite';
+    });
+  </script>
+
+  <style>
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</div>
+</element><element id="c93e8984-d2ac-4bfe-adb0-5a5c16927840" data-section-id="c93e8984-d2ac-4bfe-adb0-5a5c16927840">
+
+
+<div id="root">
+  <section id="how-it-works" class="py-20 bg-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white font-[Poppins] mb-4 animate__animated animate__fadeIn">How It Works</h2>
+        <p class="text-gray-300 text-lg font-[Inter] animate__animated animate__fadeIn">Simple steps to start hiring or get hired</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16">
+        <!-- For Businesses & Homeowners -->
+        <div class="bg-neutral-700 rounded-xl p-8">
+          <h3 class="text-2xl font-bold text-[#FF9800] mb-8 font-[Poppins]">For Businesses & Homeowners</h3>
+          <div class="space-y-8">
+            <div class="flex items-start gap-4 transform hover:translate-x-2 transition-transform animate__animated animate__fadeInLeft">
+              <div class="w-12 h-12 bg-[#003366] rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold">1</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">Post a Job</h4>
+                <p class="text-gray-300">Describe your requirements and expectations in detail</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 transform hover:translate-x-2 transition-transform animate__animated animate__fadeInLeft" style="animation-delay: 0.2s">
+              <div class="w-12 h-12 bg-[#003366] rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold">2</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">AI Talent Match</h4>
+                <p class="text-gray-300">Get intelligent recommendations for the perfect match</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 transform hover:translate-x-2 transition-transform animate__animated animate__fadeInLeft" style="animation-delay: 0.4s">
+              <div class="w-12 h-12 bg-[#003366] rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold">3</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">Hire & Pay Securely</h4>
+                <p class="text-gray-300">Complete transactions via UPI, Razorpay, or bank transfer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- For Workers & Professionals -->
+        <div class="bg-neutral-700 rounded-xl p-8">
+          <h3 class="text-2xl font-bold text-[#28A745] mb-8 font-[Poppins]">For Workers & Professionals</h3>
+          <div class="space-y-8">
+            <div class="flex items-start gap-4 transform hover:translate-x-2 transition-transform animate__animated animate__fadeInRight">
+              <div class="w-12 h-12 bg-[#28A745] rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold">1</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">Sign Up & Verify</h4>
+                <p class="text-gray-300">Quick registration using phone or Aadhaar</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 transform hover:translate-x-2 transition-transform animate__animated animate__fadeInRight" style="animation-delay: 0.2s">
+              <div class="w-12 h-12 bg-[#28A745] rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold">2</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">Receive Job Offers</h4>
+                <p class="text-gray-300">Get matched with suitable tasks and opportunities</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 transform hover:translate-x-2 transition-transform animate__animated animate__fadeInRight" style="animation-delay: 0.4s">
+              <div class="w-12 h-12 bg-[#28A745] rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold">3</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">Get Paid Instantly</h4>
+                <p class="text-gray-300">Enjoy secure and timely payments for your work</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated');
+          entry.target.style.opacity = 1;
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('#how-it-works .animate__animated').forEach((element) => {
+      observer.observe(element);
+      element.style.opacity = 0;
+    });
+  </script>
+</div>
+</element><element id="6155d32e-1cbc-43a7-b9ad-e78703187272" data-section-id="6155d32e-1cbc-43a7-b9ad-e78703187272">
+
+
+<div id="root">
+  <section id="features" class="py-20 bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white font-[Poppins] mb-4 animate__animated animate__fadeIn">Key Features</h2>
+        <p class="text-gray-300 text-lg font-[Inter] animate__animated animate__fadeIn">Powerful tools for seamless hiring</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- AI-Powered Instant Hiring -->
+        <div class="bg-neutral-800 rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:bg-neutral-700 group animate__animated animate__fadeInUp">
+          <div class="text-4xl mb-6 transform transition-all duration-300 group-hover:scale-110">🚀</div>
+          <h3 class="text-xl font-bold text-white mb-4 font-[Poppins]">AI-Powered Instant Hiring</h3>
+          <p class="text-gray-300 font-[Inter]">Advanced algorithms match you with the perfect talent instantly based on your requirements</p>
+        </div>
+
+        <!-- Verified Professionals -->
+        <div class="bg-neutral-800 rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:bg-neutral-700 group animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+          <div class="text-4xl mb-6 transform transition-all duration-300 group-hover:scale-110">🛡</div>
+          <h3 class="text-xl font-bold text-white mb-4 font-[Poppins]">Verified Professionals</h3>
+          <p class="text-gray-300 font-[Inter]">Every professional undergoes thorough ID and skill verification for your peace of mind</p>
+        </div>
+
+        <!-- Smart Wage Calculator -->
+        <div class="bg-neutral-800 rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:bg-neutral-700 group animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+          <div class="text-4xl mb-6 transform transition-all duration-300 group-hover:scale-110">💰</div>
+          <h3 class="text-xl font-bold text-white mb-4 font-[Poppins]">Smart Wage Calculator</h3>
+          <p class="text-gray-300 font-[Inter]">AI-powered system suggests fair market rates based on skills and experience</p>
+        </div>
+
+        <!-- GPS-Based Matching -->
+        <div class="bg-neutral-800 rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:bg-neutral-700 group animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+          <div class="text-4xl mb-6 transform transition-all duration-300 group-hover:scale-110">📍</div>
+          <h3 class="text-xl font-bold text-white mb-4 font-[Poppins]">GPS-Based Matching</h3>
+          <p class="text-gray-300 font-[Inter]">Find skilled professionals near you with real-time location tracking</p>
+        </div>
+
+        <!-- Secure Payments -->
+        <div class="bg-neutral-800 rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:bg-neutral-700 group animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+          <div class="text-4xl mb-6 transform transition-all duration-300 group-hover:scale-110">🔐</div>
+          <h3 class="text-xl font-bold text-white mb-4 font-[Poppins]">Secure Payments</h3>
+          <p class="text-gray-300 font-[Inter]">Protected payment system with escrow and automated invoicing</p>
+        </div>
+
+        <!-- Real-time Chat -->
+        <div class="bg-neutral-800 rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:bg-neutral-700 group animate__animated animate__fadeInUp" style="animation-delay: 1s">
+          <div class="text-4xl mb-6 transform transition-all duration-300 group-hover:scale-110">💬</div>
+          <h3 class="text-xl font-bold text-white mb-4 font-[Poppins]">Real-time Chat</h3>
+          <p class="text-gray-300 font-[Inter]">Instant communication with AI-powered translation support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('#features .animate__animated').forEach((el) => {
+      observer.observe(el);
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(20px)';
+    });
+  </script>
+</div>
+</element><element id="54d989d0-3882-4342-b1ae-90e139f78318" data-section-id="54d989d0-3882-4342-b1ae-90e139f78318">
+
+<div id="root">
+  <section id="talent-categories" class="py-20 bg-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white font-[Poppins] mb-4 animate__animated animate__fadeIn">Talent Categories</h2>
+        <p class="text-gray-300 text-lg font-[Inter] animate__animated animate__fadeIn">Find the right talent for every need</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Tech Category -->
+        <div class="group bg-neutral-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:bg-[#003366] animate__animated animate__fadeInUp">
+          <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">👨‍💻</div>
+          <h3 class="text-white font-bold mb-2 font-[Poppins]">Tech Talent</h3>
+          <ul class="text-gray-300 text-sm space-y-2 font-[Inter]">
+            <li>Software Engineers</li>
+            <li>UI/UX Designers</li>
+            <li>Data Scientists</li>
+            <li>DevOps Engineers</li>
+          </ul>
+        </div>
+
+        <!-- Home Services -->
+        <div class="group bg-neutral-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:bg-[#003366] animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+          <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🏠</div>
+          <h3 class="text-white font-bold mb-2 font-[Poppins]">Home Services</h3>
+          <ul class="text-gray-300 text-sm space-y-2 font-[Inter]">
+            <li>Electricians</li>
+            <li>Plumbers</li>
+            <li>Carpenters</li>
+            <li>Painters</li>
+          </ul>
+        </div>
+
+        <!-- Creative -->
+        <div class="group bg-neutral-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:bg-[#003366] animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+          <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🎨</div>
+          <h3 class="text-white font-bold mb-2 font-[Poppins]">Creative</h3>
+          <ul class="text-gray-300 text-sm space-y-2 font-[Inter]">
+            <li>Graphic Designers</li>
+            <li>Content Writers</li>
+            <li>Video Editors</li>
+            <li>Animators</li>
+          </ul>
+        </div>
+
+        <!-- Marketing -->
+        <div class="group bg-neutral-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:bg-[#003366] animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+          <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📢</div>
+          <h3 class="text-white font-bold mb-2 font-[Poppins]">Marketing</h3>
+          <ul class="text-gray-300 text-sm space-y-2 font-[Inter]">
+            <li>Digital Marketers</li>
+            <li>SEO Specialists</li>
+            <li>Social Media Managers</li>
+            <li>Content Strategists</li>
+          </ul>
+        </div>
+
+        <!-- Construction -->
+        <div class="group bg-neutral-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:bg-[#003366] animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+          <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🏗️</div>
+          <h3 class="text-white font-bold mb-2 font-[Poppins]">Construction</h3>
+          <ul class="text-gray-300 text-sm space-y-2 font-[Inter]">
+            <li>Civil Engineers</li>
+            <li>Architects</li>
+            <li>Contractors</li>
+            <li>Construction Workers</li>
+          </ul>
+        </div>
+
+        <!-- Business -->
+        <div class="group bg-neutral-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:bg-[#003366] animate__animated animate__fadeInUp" style="animation-delay: 1s">
+          <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">💼</div>
+          <h3 class="text-white font-bold mb-2 font-[Poppins]">Business</h3>
+          <ul class="text-gray-300 text-sm space-y-2 font-[Inter]">
+            <li>Business Analysts</li>
+            <li>Financial Advisors</li>
+            <li>HR Specialists</li>
+            <li>Project Managers</li>
+          </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="group bg-neutral-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:bg-[#003366] animate__animated animate__fadeInUp" style="animation-delay: 1.2s">
+          <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📚</div>
+          <h3 class="text-white font-bold mb-2 font-[Poppins]">Education</h3>
+          <ul class="text-gray-300 text-sm space-y-2 font-[Inter]">
+            <li>Teachers</li>
+            <li>Tutors</li>
+            <li>Training Specialists</li>
+            <li>Education Consultants</li>
+          </ul>
+        </div>
+
+        <!-- Healthcare -->
+        <div class="group bg-neutral-700 rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:bg-[#003366] animate__animated animate__fadeInUp" style="animation-delay: 1.4s">
+          <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">⚕️</div>
+          <h3 class="text-white font-bold mb-2 font-[Poppins]">Healthcare</h3>
+          <ul class="text-gray-300 text-sm space-y-2 font-[Inter]">
+            <li>Nurses</li>
+            <li>Caregivers</li>
+            <li>Medical Assistants</li>
+            <li>Healthcare Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('#talent-categories .animate__animated').forEach((el) => {
+      observer.observe(el);
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(20px)';
+    });
+  </script>
+</div></element><element id="b0447114-c0f6-4bd5-8957-c01064087f88" data-section-id="b0447114-c0f6-4bd5-8957-c01064087f88">
+
+<div id="root">
+  <section id="success-stories" class="py-20 bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white font-[Poppins] mb-4 animate__animated animate__fadeIn">Success Stories</h2>
+        <p class="text-gray-300 text-lg font-[Inter] animate__animated animate__fadeIn">See what our community has to say</p>
+      </div>
+
+      <div class="relative" x-data="{ activeSlide: 0 }">
+        <div class="overflow-hidden">
+          <div class="flex transition-transform duration-500" :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
+            <!-- Testimonial 1 -->
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="bg-neutral-800 rounded-xl p-8 transform hover:scale-105 transition-transform">
+                <div class="flex items-center mb-6">
+                  <div class="w-16 h-16 bg-[#003366] rounded-full flex items-center justify-center text-2xl">
+                    👨‍💼
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold text-white font-[Poppins]">Ankit S.</h3>
+                    <p class="text-[#FF9800]">Founder, AI Startup</p>
+                  </div>
+                </div>
+                <p class="text-gray-300 text-lg italic mb-6 font-[Inter]">"Labora helped me find the perfect SDE for my startup in hours!"</p>
+                <div class="flex text-[#FF9800] text-2xl">★★★★★</div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="bg-neutral-800 rounded-xl p-8 transform hover:scale-105 transition-transform">
+                <div class="flex items-center mb-6">
+                  <div class="w-16 h-16 bg-[#003366] rounded-full flex items-center justify-center text-2xl">
+                    👨
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold text-white font-[Poppins]">Ravi T.</h3>
+                    <p class="text-[#FF9800]">Homeowner</p>
+                  </div>
+                </div>
+                <p class="text-gray-300 text-lg italic mb-6 font-[Inter]">"I was able to hire an electrician within minutes for my home repairs."</p>
+                <div class="flex text-[#FF9800] text-2xl">★★★★★</div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="bg-neutral-800 rounded-xl p-8 transform hover:scale-105 transition-transform">
+                <div class="flex items-center mb-6">
+                  <div class="w-16 h-16 bg-[#003366] rounded-full flex items-center justify-center text-2xl">
+                    👩‍💻
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold text-white font-[Poppins]">Priya M.</h3>
+                    <p class="text-[#FF9800]">UX Designer</p>
+                  </div>
+                </div>
+                <p class="text-gray-300 text-lg italic mb-6 font-[Inter]">"This platform gave me stable freelance work and increased my income."</p>
+                <div class="flex text-[#FF9800] text-2xl">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#003366] p-3 rounded-full text-white hover:bg-[#002244] transition-colors -ml-4" @click="activeSlide = (activeSlide - 1 + 3) % 3">
+          ←
+        </button>
+        <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#003366] p-3 rounded-full text-white hover:bg-[#002244] transition-colors -mr-4" @click="activeSlide = (activeSlide + 1) % 3">
+          →
+        </button>
+
+        <!-- Dots -->
+        <div class="flex justify-center mt-8 space-x-2">
+          <button class="w-3 h-3 rounded-full transition-colors" :class="{ 'bg-[#FF9800]': activeSlide === 0, 'bg-neutral-600': activeSlide !== 0 }" @click="activeSlide = 0"></button>
+          <button class="w-3 h-3 rounded-full transition-colors" :class="{ 'bg-[#FF9800]': activeSlide === 1, 'bg-neutral-600': activeSlide !== 1 }" @click="activeSlide = 1"></button>
+          <button class="w-3 h-3 rounded-full transition-colors" :class="{ 'bg-[#FF9800]': activeSlide === 2, 'bg-neutral-600': activeSlide !== 2 }" @click="activeSlide = 2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Auto-advance carousel
+    setInterval(() => {
+      const state = Alpine.store('carousel');
+      state.activeSlide = (state.activeSlide + 1) % 3;
+    }, 5000);
+  </script>
+</div></element><element id="c6fb19b1-fa40-473a-8414-a297cd87ae2a" data-section-id="c6fb19b1-fa40-473a-8414-a297cd87ae2a">
+
+<div id="root">
+  <section id="pricing" class="py-20 bg-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white font-[Poppins] mb-4 animate__animated animate__fadeIn">Simple, Transparent Pricing</h2>
+        <p class="text-gray-300 text-lg font-[Inter] animate__animated animate__fadeIn">Choose the plan that works best for you</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Basic Plan -->
+        <div class="bg-neutral-900 rounded-2xl p-8 border border-neutral-700 transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp">
+          <h3 class="text-2xl font-bold text-white mb-4 font-[Poppins]">Basic</h3>
+          <div class="flex items-baseline mb-8">
+            <span class="text-4xl font-bold text-white">₹999</span>
+            <span class="text-gray-400 ml-2">/month</span>
+          </div>
+          <ul class="space-y-4 mb-8 text-gray-300 font-[Inter]">
+            <li class="flex items-center">
+              <span class="text-[#28A745] mr-2">✓</span>
+              Up to 5 job postings
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#28A745] mr-2">✓</span>
+              Basic AI matching
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#28A745] mr-2">✓</span>
+              Standard support
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#28A745] mr-2">✓</span>
+              Basic analytics
+            </li>
+          </ul>
+          <button class="w-full py-3 rounded-lg bg-[#003366] text-white font-bold hover:bg-[#002244] transition-colors">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="bg-[#003366] rounded-2xl p-8 border-2 border-[#FF9800] transform hover:scale-105 transition-all duration-300 relative animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#FF9800] text-white px-4 py-1 rounded-full text-sm font-bold">
+            Most Popular
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4 font-[Poppins]">Professional</h3>
+          <div class="flex items-baseline mb-8">
+            <span class="text-4xl font-bold text-white">₹2499</span>
+            <span class="text-gray-300 ml-2">/month</span>
+          </div>
+          <ul class="space-y-4 mb-8 text-gray-200 font-[Inter]">
+            <li class="flex items-center">
+              <span class="text-[#FF9800] mr-2">✓</span>
+              Unlimited job postings
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#FF9800] mr-2">✓</span>
+              Advanced AI matching
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#FF9800] mr-2">✓</span>
+              Priority support
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#FF9800] mr-2">✓</span>
+              Advanced analytics
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#FF9800] mr-2">✓</span>
+              Verified talent pool
+            </li>
+          </ul>
+          <button class="w-full py-3 rounded-lg bg-[#FF9800] text-white font-bold hover:bg-[#F57C00] transition-colors">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="bg-neutral-900 rounded-2xl p-8 border border-neutral-700 transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+          <h3 class="text-2xl font-bold text-white mb-4 font-[Poppins]">Enterprise</h3>
+          <div class="flex items-baseline mb-8">
+            <span class="text-4xl font-bold text-white">Custom</span>
+          </div>
+          <ul class="space-y-4 mb-8 text-gray-300 font-[Inter]">
+            <li class="flex items-center">
+              <span class="text-[#28A745] mr-2">✓</span>
+              Custom solutions
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#28A745] mr-2">✓</span>
+              Dedicated account manager
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#28A745] mr-2">✓</span>
+              24/7 premium support
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#28A745] mr-2">✓</span>
+              Custom API access
+            </li>
+            <li class="flex items-center">
+              <span class="text-[#28A745] mr-2">✓</span>
+              Custom integrations
+            </li>
+          </ul>
+          <button class="w-full py-3 rounded-lg bg-[#28A745] text-white font-bold hover:bg-[#218838] transition-colors">
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0) scale(1)';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('#pricing .animate__animated').forEach((el) => {
+      observer.observe(el);
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(20px) scale(0.95)';
+    });
+  </script>
+</div></element><element id="96a5c305-81a1-4962-a783-dca073b498c7" data-section-id="96a5c305-81a1-4962-a783-dca073b498c7">
+
+
+<div id="root">
+  <section id="signup" class="py-16 bg-neutral-900">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-neutral-800 rounded-2xl shadow-2xl overflow-hidden">
+        <div class="flex flex-col md:flex-row">
+          <!-- Left Side Content -->
+          <div class="w-full md:w-1/2 p-8 md:p-12">
+            <h2 class="text-3xl font-bold text-white mb-4">Start Hiring or Get Hired Today!</h2>
+            <p class="text-neutral-300 mb-8">Join thousands of businesses and professionals on labora's trusted hiring platform.</p>
+            
+            <form class="space-y-4">
+              <div class="group">
+                <input type="text" class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white transition duration-300" placeholder="Full Name" required>
+              </div>
+              
+              <div class="group">
+                <input type="tel" class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white transition duration-300" placeholder="Phone Number" required>
+              </div>
+              
+              <div class="group">
+                <select class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white transition duration-300">
+                  <option value="">Select Skill Category</option>
+                  <option value="sde">Software Engineer</option>
+                  <option value="designer">Designer</option>
+                  <option value="electrician">Electrician</option>
+                  <option value="plumber">Plumber</option>
+                  <option value="carpenter">Carpenter</option>
+                </select>
+              </div>
+              
+              <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-[1.02]">
+                Sign Up Now
+              </button>
+            </form>
+            
+            <div class="mt-6 flex flex-col space-y-4">
+              <button class="w-full flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-neutral-800 font-semibold py-3 px-6 rounded-lg transition duration-300">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                Continue with Google
+              </button>
+              
+              <button class="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#22c55e] text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Continue with WhatsApp
+              </button>
+            </div>
+          </div>
+          
+          <!-- Right Side Gradient -->
+          <div class="hidden md:block w-1/2 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 p-12">
+            <div class="h-full flex flex-col justify-center">
+              <h3 class="text-2xl font-bold text-white mb-4">Why Choose labora?</h3>
+              <ul class="space-y-4 text-white">
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  AI-Powered Talent Matching
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Verified Professionals
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Secure Payment System
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  24/7 Support
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="c644f6d7-c651-4170-8c62-7614dec66b89" data-section-id="c644f6d7-c651-4170-8c62-7614dec66b89">
+
+
+<div id="root">
+  <footer id="footer" class="bg-neutral-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <!-- Company Info -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6">labora</h3>
+          <p class="text-neutral-400 mb-4">Connecting skilled professionals with opportunities. Your trusted platform for hiring talent and finding work.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Support</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Help Center</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Language & Contact -->
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Language</h4>
+          <select class="bg-neutral-800 text-white px-4 py-2 rounded-lg w-full mb-6">
+            <option value="en">🇬🇧 English</option>
+            <option value="hi">🇮🇳 Hindi</option>
+            <option value="bn">🇮🇳 Bengali</option>
+            <option value="te">🇮🇳 Telugu</option>
+          </select>
+          
+          <h4 class="text-lg font-semibold mb-4">Contact Support</h4>
+          <a href="https://wa.me/1234567890" class="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors mb-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+            </svg>
+            WhatsApp Support
+          </a>
+          <a href="mailto:support@labora.com" class="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            support@labora.com
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-neutral-800 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-neutral-400 text-sm mb-4 md:mb-0">© 2024 Labora. All rights reserved.</p>
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white text-sm transition-colors">Terms</a>
+            <a href="#" class="text-neutral-400 hover:text-white text-sm transition-colors">Privacy</a>
+            <a href="#" class="text-neutral-400 hover:text-white text-sm transition-colors">Security</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</element></div>
+            <div id="page_complete">
+            <script src="/edit/edit.js"></script>
+            <script>
+                console.log('Page complete');
+                
+            </script>
+            </body>
+            </html>
+          
